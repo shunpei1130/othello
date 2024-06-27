@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-green-100">
-    <h1 class="text-4xl font-bold mb-4">オセロ</h1>
+    <h1 class="text-4xl font-bold mb-4">fuckだろほんと</h1>
     <div class="mb-4">
       <span class="mr-4">黒: {{ blackCount }}</span>
       <span>白: {{ whiteCount }}</span>
