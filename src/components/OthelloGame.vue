@@ -1,6 +1,20 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-green-100">
-    <h1 class="text-4xl font-bold mb-4">fuckだろほんと</h1>
+    <h3 class="text-4xl font-bold mb-4">樋口智也です♡オセロしてってね</h3>
+    <div class="image-grid">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
+    </div>
     <div class="mb-4">
       <span class="mr-4">黒: {{ blackCount }}</span>
       <span>白: {{ whiteCount }}</span>
@@ -36,7 +50,55 @@
   </div>
 </template>
 
+<style scoped>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列のグリッド */
+  grid-gap: 10px; /* 画像間の間隔 */
+  margin-bottom: 20px; /* 下部のマージン */
+}
+.img-size {
+  width: 150px; /* 画像の幅を指定 */
+  height: auto; /* 高さを自動調整 */
+  max-width: 100%; /* 親要素の幅を超えないようにする */
+}
+.board {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  background-color: #2d6a4f;
+  width: 400px;
+  height: 400px;
+  border: 4px solid #1b4332;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1b4332;
+}
+
+.bg-green-500 {
+  background-color: #4caf50;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-white {
+  background-color: white;
+}
+</style>
+
 <script>
+import hazu from '@/assets/hazu.jpg';
+
 const BOARD_SIZE = 8;
 const EMPTY = 0;
 const BLACK = 1;
@@ -79,7 +141,8 @@ export default {
       timer: null,
       BLACK: BLACK,
       WHITE: WHITE,
-      EMPTY: EMPTY
+      EMPTY: EMPTY,
+      hazu, // インポートした画像をデータとして追加
     };
   },
   computed: {
