@@ -73,13 +73,14 @@
 
 <script>
 
+
 const BOARD_SIZE = 8;
 const EMPTY = 0;
 const BLACK = 1;
 const WHITE = 2;
 
 const DIRECTIONS = [
-  [-1, -1], [-1, 0], [-1, 1],
+  [-1, -1], [-1, 0], [-1,1],
   [0, -1],           [0, 1],
   [1, -1],  [1, 0],  [1, 1]
 ];
@@ -116,7 +117,21 @@ export default {
       BLACK: BLACK,
       WHITE: WHITE,
       EMPTY: EMPTY,
+
     };
+  },
+  created() {
+    const gameRef = ref(db, 'gameState');
+    onValue(gameRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        this.isUpdatingRemote = true;
+        this.board = data.board;
+        this.currentPlayer = data.currentPlayer;
+        this.gameOver = data.gameOver;
+        this.isUpdatingRemote = false;
+      }
+    });
   },
   computed: {
     blackCount() {
@@ -205,6 +220,7 @@ export default {
 
       this.board = newBoard;
       this.currentPlayer = 3 - this.currentPlayer;
+      this.updateRemoteState();
     },
     evaluateBoard(board, player) {
       let score = 0;
@@ -285,6 +301,15 @@ export default {
       this.board = initialBoard();
       this.currentPlayer = this.BLACK;
       this.gameOver = false;
+      this.updateRemoteState();
+    },
+    updateRemoteState() {
+      if (this.isUpdatingRemote) return;
+      set(ref(db, 'gameState'), {
+        board: this.board,
+        currentPlayer: this.currentPlayer,
+        gameOver: this.gameOver
+      });
     },
     toggleCPUOpponent() {
       this.isCPUOpponent = !this.isCPUOpponent;
