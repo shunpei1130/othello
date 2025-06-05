@@ -1,20 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-green-100">
     <h3 class="text-4xl font-bold mb-4">樋口智也です♡オセロしてってね</h3>
-    <div class="image-grid">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    <img :src="hazu" alt="画像の説明" class="mb-4 img-size">
-    </div>
     <div class="mb-4">
       <span class="mr-4">黒: {{ blackCount }}</span>
       <span>白: {{ whiteCount }}</span>
@@ -51,17 +37,6 @@
 </template>
 
 <style scoped>
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3列のグリッド */
-  grid-gap: 10px; /* 画像間の間隔 */
-  margin-bottom: 20px; /* 下部のマージン */
-}
-.img-size {
-  width: 150px; /* 画像の幅を指定 */
-  height: auto; /* 高さを自動調整 */
-  max-width: 100%; /* 親要素の幅を超えないようにする */
-}
 .board {
   display: grid;
   grid-template-rows: repeat(8, 1fr);
@@ -97,7 +72,6 @@
 </style>
 
 <script>
-import hazu from '@/assets/hazu.jpg';
 
 const BOARD_SIZE = 8;
 const EMPTY = 0;
@@ -142,7 +116,6 @@ export default {
       BLACK: BLACK,
       WHITE: WHITE,
       EMPTY: EMPTY,
-      hazu, // インポートした画像をデータとして追加
     };
   },
   computed: {
