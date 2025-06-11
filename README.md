@@ -1,30 +1,16 @@
-# new-othello-game
+# タワーオブハノイ
 
-## Project setup
-```
-npm install
-```
+これはシンプルなタワーオブハノイのパズルゲームです。HTML、CSS、JavaScript だけで実装されています。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 遊び方
+1. `index.html` をブラウザで開きます。
+2. 画面上部の入力欄からディスク数を設定し、 **Start** ボタンを押すとゲームが開始されます。
+3. 3 本のペグをクリックしてディスクを移動させ、すべてのディスクを右端のペグに移動させるとクリアです。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## ファイル構成
+- `index.html` - ゲーム画面と操作ボタンを定義した HTML ファイル
+- `style.css` - 画面の見た目を整えるスタイルシート
+- `script.js` - ゲームのロジックを実装した JavaScript ファイル
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## Remote Play Setup
-
-The board state is synchronized using Firebase Realtime Database. Create a Firebase project and update `src/firebase.js` with your configuration parameters. Deploy the site and players opening the page will see each other's moves in real time.
-
-# othello
+## ライセンス
+このリポジトリの内容は MIT ライセンスの下で提供されています。
